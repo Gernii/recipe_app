@@ -103,6 +103,24 @@ class _DetailScreenState extends State<DetailScreen>
 
 class IngredientsView extends StatelessWidget {
   final List<Map<String, dynamic>> ingredients;
+  String _measurements(type) {
+    switch (type) {
+      case 0:
+        return 'Gr';
+      case 1:
+        return 'Kg';
+      case 2:
+        return 'ml';
+      case 3:
+        return 'Quả';
+      case 4:
+        return 'Hộp';
+      case 5:
+        return 'Chai';
+      default:
+        return '';
+    }
+  }
 
   const IngredientsView(this.ingredients, {Key? key}) : super(key: key);
 
@@ -112,10 +130,22 @@ class IngredientsView extends StatelessWidget {
     for (var item in ingredients) {
       children.add(
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Icon(Icons.done),
-            const SizedBox(width: 5.0),
-            Text(item['name']),
+            Row(
+              children: [
+                const Icon(Icons.done),
+                const SizedBox(width: 5.0),
+                Text(item['name']),
+              ],
+            ),
+            Row(
+              children: [
+                Text(item['weight'].toString()),
+                const SizedBox(width: 5.0),
+                Text(_measurements(item['measurement'])),
+              ],
+            )
           ],
         ),
       );
