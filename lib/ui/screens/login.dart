@@ -4,6 +4,8 @@ import '../../ui/widgets/google_sign_in_button.dart';
 import '../../state_widget.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -15,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
     // organize our code and recognize structure of widget
     // that we're building:
     BoxDecoration _buildBackground() {
-      return BoxDecoration(
+      return const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/brooke-lark-385507-unsplash.jpg"),
           fit: BoxFit.cover,
@@ -39,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _buildText(),
-              SizedBox(height: 50.0),
+              const SizedBox(height: 50.0),
               GoogleSignInButton(
                 // Passing function callback as constructor argument:
                 // onPressed: () =>

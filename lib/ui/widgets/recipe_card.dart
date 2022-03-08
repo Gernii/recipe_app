@@ -37,7 +37,7 @@ class _RecipeCardState extends State<RecipeCard> {
           color: Theme.of(context).iconTheme.color,
         ),
         elevation: 2.0,
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
       );
     }
 
@@ -52,7 +52,7 @@ class _RecipeCardState extends State<RecipeCard> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
         child: Card(
           child: Column(
             mainAxisSize: MainAxisSize.min,

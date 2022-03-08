@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '/model/recipe.dart';
 import '/ui/widgets/recipe_title.dart';
-import '/utils/store.dart';
 import '/ui/widgets/recipe_image.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -39,7 +38,6 @@ class _DetailScreenState extends State<DetailScreen>
   }
 
   void _toggleInFavorites(recipe) {
-    print(recipe.duration);
     setState(() {
       _favorite = !_favorite!;
     });
@@ -70,7 +68,7 @@ class _DetailScreenState extends State<DetailScreen>
               elevation: 2.0,
               forceElevated: innerViewIsScrolled,
               bottom: TabBar(
-                tabs: [
+                tabs: const [
                   Tab(text: "Nguyên liệu"),
                   Tab(text: "Công thức"),
                 ],
@@ -111,25 +109,25 @@ class IngredientsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> children = [];
-    ingredients.forEach((item) {
+    for (var item in ingredients) {
       children.add(
         Row(
           children: [
-            Icon(Icons.done),
-            SizedBox(width: 5.0),
+            const Icon(Icons.done),
+            const SizedBox(width: 5.0),
             Text(item['name']),
           ],
         ),
       );
       // Add spacing between the lines:
       children.add(
-        SizedBox(
+        const SizedBox(
           height: 15.0,
         ),
       );
-    });
+    }
     return ListView(
-      padding: EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 75.0),
+      padding: const EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 75.0),
       children: children,
     );
   }
@@ -138,7 +136,7 @@ class IngredientsView extends StatelessWidget {
 class PreparationView extends StatelessWidget {
   final List<String> preparationSteps;
 
-  PreparationView(this.preparationSteps);
+  const PreparationView(this.preparationSteps, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -148,14 +146,14 @@ class PreparationView extends StatelessWidget {
         Text('${i + 1}. $item'),
       );
       textElements.add(
-        SizedBox(
+        const SizedBox(
           height: 20.0,
           // Add spacing between the line
         ),
       );
     });
     return ListView(
-      padding: EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 75.0),
+      padding: const EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 75.0),
       children: textElements,
     );
   }

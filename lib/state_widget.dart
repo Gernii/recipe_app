@@ -45,7 +45,7 @@ class _StateWidgetState extends State<StateWidget> {
     }
   }
 
-  Future<Null> initUser() async {
+  Future<void> initUser() async {
     googleAccount = await getSignedInAccount(googleSignIn);
     if (googleAccount == null) {
       setState(() {
@@ -68,11 +68,8 @@ class _StateWidgetState extends State<StateWidget> {
     return [];
   }
 
-  Future<Null> signInWithGoogle() async {
-    if (googleAccount == null) {
-      // Start the sign-in process:
-      googleAccount = await googleSignIn.signIn();
-    }
+  Future<void> signInWithGoogle() async {
+    googleAccount ??= await googleSignIn.signIn();
     User firebaseUser = await signIntoFirebase(googleAccount);
     state?.user = firebaseUser; //
     List<String> favorites = await getFavorites(); //
@@ -82,7 +79,7 @@ class _StateWidgetState extends State<StateWidget> {
     });
   }
 
-  Future<Null> signOutOfGoogle() async {
+  Future<void> signOutOfGoogle() async {
     // Sign out from Firebase and Google
     await FirebaseAuth.instance.signOut();
     await googleSignIn.signOut();
@@ -106,7 +103,7 @@ class _StateWidgetState extends State<StateWidget> {
 class _StateDataWidget extends InheritedWidget {
   final _StateWidgetState data;
 
-  _StateDataWidget({
+  const _StateDataWidget({
     Key? key,
     required Widget child,
     required this.data,

@@ -17,7 +17,7 @@ class GoogleSignInButton extends StatelessWidget {
     }
 
     Opacity _buildText() {
-      return Opacity(
+      return const Opacity(
         opacity: 0.54,
         child: Text(
           "Sign in with Google",
@@ -37,7 +37,7 @@ class GoogleSignInButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           _buildLogo(),
-          SizedBox(width: 24.0),
+          const SizedBox(width: 24.0),
           _buildText(),
         ],
       ),

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 ThemeData buildTheme() {
@@ -7,22 +5,22 @@ ThemeData buildTheme() {
   // in this method:
   TextTheme _buildTextTheme(TextTheme base) {
     return base.copyWith(
-      headline1: TextStyle(
+      headline1: const TextStyle(
         fontFamily: 'Merriweather',
         fontSize: 40.0,
-        color: const Color(0xFF807A6B),
+        color: Color(0xFF807A6B),
       ),
       // Used for the recipes' title:
-      subtitle1: TextStyle(
+      subtitle1: const TextStyle(
         fontFamily: 'Merriweather',
         fontSize: 15.0,
-        color: const Color(0xFF807A6B),
+        color: Color(0xFF807A6B),
       ),
       // Used for the recipes' duration:
-      caption: TextStyle(
-        color: const Color(0xFFCCC5AF),
+      caption: const TextStyle(
+        color: Color(0xFFCCC5AF),
       ),
-      bodyText1: TextStyle(color: const Color(0xFF807A6B)),
+      bodyText1: const TextStyle(color: Color(0xFF807A6B)),
     );
   }
 
@@ -35,8 +33,8 @@ ThemeData buildTheme() {
       primaryColor: const Color(0xFFFFF8E1),
       indicatorColor: const Color(0xFF807A6B),
       scaffoldBackgroundColor: const Color(0xFFF5F5F5),
-      iconTheme: IconThemeData(
-        color: const Color(0xFFCCC5AF),
+      iconTheme: const IconThemeData(
+        color: Color(0xFFCCC5AF),
         size: 20.0,
       ),
       backgroundColor: Colors.white,

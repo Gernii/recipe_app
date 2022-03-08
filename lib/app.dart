@@ -5,6 +5,8 @@ import '../ui/screens/login.dart';
 import '../ui/theme.dart';
 
 class RecipesApp extends StatelessWidget {
+  const RecipesApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,8 +14,8 @@ class RecipesApp extends StatelessWidget {
       theme: buildTheme(),
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => HomeScreen(),
-        '/login': (context) => LoginScreen(),
+        '/': (context) => const HomeScreen(),
+        '/login': (context) => const LoginScreen(),
       },
     );
   }

@@ -6,7 +6,7 @@ class RecipeTitle extends StatelessWidget {
   final Recipe recipe;
   final double padding;
 
-  RecipeTitle(this.recipe, this.padding);
+  const RecipeTitle(this.recipe, this.padding, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +22,11 @@ class RecipeTitle extends StatelessWidget {
             style: Theme.of(context).textTheme.subtitle1,
           ),
           // Empty space:
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Row(
             children: [
-              Icon(Icons.timer, size: 20.0),
-              SizedBox(width: 5.0),
+              const Icon(Icons.timer, size: 20.0),
+              const SizedBox(width: 5.0),
               Text(
                 recipe.getDurationString,
                 style: Theme.of(context).textTheme.caption,

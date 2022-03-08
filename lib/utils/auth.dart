@@ -7,7 +7,6 @@ Future<GoogleSignInAccount?> getSignedInAccount(
   GoogleSignInAccount? account = googleSignIn.currentUser;
   // Try to sign in the previous user:
   account ??= await googleSignIn.signInSilently();
-  print(account);
   return account;
 }
 

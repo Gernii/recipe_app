@@ -10,6 +10,6 @@ import '../state_widget.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  StateWidget stateWidget = StateWidget(child: RecipesApp());
+  StateWidget stateWidget = const StateWidget(child: RecipesApp());
   runApp(stateWidget);
 }

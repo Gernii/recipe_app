@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class RecipeImage extends StatelessWidget {
   final String imageURL;
 
-  RecipeImage(this.imageURL);
+  const RecipeImage(this.imageURL, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

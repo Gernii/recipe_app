@@ -10,6 +10,8 @@ import '/ui/screens/login.dart';
 import '/ui/widgets/settings_button.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => HomeScreenState();
 }
@@ -25,12 +27,12 @@ class HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: PreferredSize(
           // We set Size equal to passed height (50.0) and infinite width:
-          preferredSize: Size.fromHeight(50.0),
+          preferredSize: const Size.fromHeight(50.0),
           child: AppBar(
             elevation: 2.0,
             bottom: TabBar(
               labelColor: Theme.of(context).indicatorColor,
-              tabs: [
+              tabs: const [
                 Tab(icon: Icon(Icons.restaurant, size: _iconSize)),
                 Tab(icon: Icon(Icons.local_drink, size: _iconSize)),
                 Tab(icon: Icon(Icons.favorite, size: _iconSize)),
@@ -40,7 +42,7 @@ class HomeScreenState extends State<HomeScreen> {
           ),
         ),
         body: Padding(
-          padding: EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(5.0),
           child: body,
         ),
       ),
@@ -53,7 +55,7 @@ class HomeScreenState extends State<HomeScreen> {
         body: _buildLoadingIndicator(),
       );
     } else if (!appState!.isLoading && appState?.user == null) {
-      return LoginScreen();
+      return const LoginScreen();
     } else {
       return _buildTabView(
         body: _buildTabsContent(),
@@ -62,7 +64,7 @@ class HomeScreenState extends State<HomeScreen> {
   }
 
   Center _buildLoadingIndicator() {
-    return Center(
+    return const Center(
       child: CircularProgressIndicator(),
     );
   }
@@ -145,14 +147,13 @@ class HomeScreenState extends State<HomeScreen> {
     updateFavorites(appState!.user!.uid, recipeID).then((result) {
       if (result == true) {
         setState(() {
-          if (!appState!.favorites.contains(recipeID))
+          if (!appState!.favorites.contains(recipeID)) {
             appState?.favorites.add(recipeID);
-          else
+          } else {
             appState?.favorites.remove(recipeID);
+          }
         });
       }
-      print(recipeID);
-      print(appState?.favorites);
     });
   }
 
