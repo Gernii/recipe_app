@@ -3,9 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 Future<GoogleSignInAccount?> getSignedInAccount(
     GoogleSignIn googleSignIn) async {
-  // Is the user already signed in?
+  // Kiểm tra user đã đăng nhập hay chưa
   GoogleSignInAccount? account = googleSignIn.currentUser;
-  // Try to sign in the previous user:
   account ??= await googleSignIn.signInSilently();
   return account;
 }

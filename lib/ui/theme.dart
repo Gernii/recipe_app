@@ -16,6 +16,11 @@ ThemeData buildTheme() {
         fontSize: 15.0,
         color: Color(0xFF807A6B),
       ),
+      subtitle2: const TextStyle(
+        fontFamily: 'Merriweather',
+        fontSize: 10.0,
+        color: Color(0xFF807A6B),
+      ),
       // Used for the recipes' duration:
       caption: const TextStyle(
         color: Color(0xFFCCC5AF),
@@ -31,7 +36,7 @@ ThemeData buildTheme() {
   return base.copyWith(
       textTheme: _buildTextTheme(base.textTheme),
       primaryColor: const Color(0xFFFFF8E1),
-      indicatorColor: const Color(0xFF807A6B),
+      indicatorColor: Color(0xFFEB9F3B),
       scaffoldBackgroundColor: const Color(0xFFF5F5F5),
       iconTheme: const IconThemeData(
         color: Color(0xFFCCC5AF),
