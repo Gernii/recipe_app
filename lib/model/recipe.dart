@@ -1,5 +1,3 @@
-import 'package:duration/duration.dart';
-
 enum RecipeType {
   food,
   drink,
@@ -9,7 +7,7 @@ class Recipe {
   final String id;
   final RecipeType type;
   final String name;
-  final Duration duration;
+  final int duration;
   final List<Map<String, dynamic>> ingredients;
   final List<String> preparation;
   final String imageURL;
@@ -24,14 +22,16 @@ class Recipe {
     required this.imageURL,
   });
 
-  String get getDurationString => prettyDuration(duration);
+  String get getDurationString {
+    return '$duration phút';
+  }
 
   Recipe.fromMap(Map<String, dynamic> data, String id)
       : this(
           id: id,
           type: RecipeType.values[data['type']],
           name: data['name'],
-          duration: Duration(minutes: data['duration']),
+          duration: data['duration'],
           ingredients: List<Map<String, dynamic>>.from(data['ingredients']),
           preparation: List<String>.from(data['preparation']),
           imageURL: data['image'],

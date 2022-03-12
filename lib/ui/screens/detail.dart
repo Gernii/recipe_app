@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../views/detail_preparation.dart';
+import '../views/detail_ingredients.dart';
 import '/model/recipe.dart';
 import '/ui/widgets/recipe_title.dart';
-import '/utils/store.dart';
 import '/ui/widgets/recipe_image.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -39,7 +40,6 @@ class _DetailScreenState extends State<DetailScreen>
   }
 
   void _toggleInFavorites(recipe) {
-    print(recipe.duration);
     setState(() {
       _favorite = !_favorite!;
     });
@@ -70,7 +70,7 @@ class _DetailScreenState extends State<DetailScreen>
               elevation: 2.0,
               forceElevated: innerViewIsScrolled,
               bottom: TabBar(
-                tabs: [
+                tabs: const [
                   Tab(text: "Nguyên liệu"),
                   Tab(text: "Công thức"),
                 ],
@@ -99,64 +99,6 @@ class _DetailScreenState extends State<DetailScreen>
         elevation: 2.0,
         backgroundColor: Colors.white,
       ),
-    );
-  }
-}
-
-class IngredientsView extends StatelessWidget {
-  final List<Map<String, dynamic>> ingredients;
-
-  const IngredientsView(this.ingredients, {Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> children = [];
-    ingredients.forEach((item) {
-      children.add(
-        Row(
-          children: [
-            Icon(Icons.done),
-            SizedBox(width: 5.0),
-            Text(item['name']),
-          ],
-        ),
-      );
-      // Add spacing between the lines:
-      children.add(
-        SizedBox(
-          height: 15.0,
-        ),
-      );
-    });
-    return ListView(
-      padding: EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 75.0),
-      children: children,
-    );
-  }
-}
-
-class PreparationView extends StatelessWidget {
-  final List<String> preparationSteps;
-
-  PreparationView(this.preparationSteps);
-
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> textElements = [];
-    preparationSteps.asMap().forEach((i, item) {
-      textElements.add(
-        Text('${i + 1}. $item'),
-      );
-      textElements.add(
-        SizedBox(
-          height: 20.0,
-          // Add spacing between the line
-        ),
-      );
-    });
-    return ListView(
-      padding: EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 75.0),
-      children: textElements,
     );
   }
 }

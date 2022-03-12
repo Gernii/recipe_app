@@ -14,18 +14,18 @@ class SettingsButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       textColor: const Color(0xFF807a6b),
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20.0),
       onPressed: () => onPressed(),
       child: Row(
         children: [
-          Icon(this.icon),
-          SizedBox(width: 20.0),
+          Icon(icon),
+          const SizedBox(width: 20.0),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(this.title),
-              SizedBox(height: 5.0),
-              Text(this.caption, style: Theme.of(context).textTheme.caption),
+              Text(title),
+              const SizedBox(height: 5.0),
+              Text(caption, style: Theme.of(context).textTheme.caption),
             ],
           ),
         ],
